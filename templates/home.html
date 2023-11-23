@@ -4,11 +4,15 @@
 
 <div class="container">
 <h1>The Stream</h1>
+
+{% set ns = namespace(concat_messages = '') %}
 {% for message in messages %}
-  <p>{{ message }}</p>
-{% else %}
-  <p>No messages available.</p>
-{% endfor %}
+    {% set ns.concat_messages = ns.concat_messages ~ message ~ ' - ' %}
+{% endfor%}
+
+<div class="scroll-left">
+    <p>{{ ns.concat_messages }}</p>
+</div>
 
 <h3>Submit a message</h3>
 
