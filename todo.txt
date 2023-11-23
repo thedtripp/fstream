@@ -1,6 +1,14 @@
+ToDo List:
 
+add css.
+    - black screen, light gray text
+    - center the content horizontally
 
-build a simple but functional UI
+implement scrolling text animation
+
+implement TTL so messages can be deleted.
+
+deploy the application
 
 make a jira board and delete this file
 

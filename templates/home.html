@@ -1,0 +1,15 @@
+<!doctype html>
+<title>fstream</title>
+<h1>The Stream</h1>
+{% for message in messages %}
+  <p>{{ message }}</p>
+{% else %}
+  <p>No messages available.</p>
+{% endfor %}
+
+<h3>Submit a message</h3>
+
+<form action="/submit" method = "post">
+  <input type="text" id="message" name="message" placeholder="Enter your message"><br>
+  <input type="submit" value="Submit">
+</form> 
