@@ -10,6 +10,11 @@ body {
     overflow: hidden; /* Add this to prevent content from overflowing */
 }
 
+.container a, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: inherit
+}
+
 .scroll-left {
     height: 50px;	
     overflow: hidden;
