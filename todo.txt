@@ -17,4 +17,6 @@ protect main branch so it cannot me pushed to
 
 where to store messages:
     - mongo
-    - reddis
+    - redis
+
+    automate merging develop to main through github actions
