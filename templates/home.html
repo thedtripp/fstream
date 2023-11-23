@@ -1,5 +1,8 @@
 <!doctype html>
 <title>fstream</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+<div class="container">
 <h1>The Stream</h1>
 {% for message in messages %}
   <p>{{ message }}</p>
@@ -13,3 +16,4 @@
   <input type="text" id="message" name="message" placeholder="Enter your message"><br>
   <input type="submit" value="Submit">
 </form> 
+</div>

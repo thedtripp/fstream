@@ -1,8 +1,7 @@
 ToDo List:
 
-add css.
-    - black screen, light gray text
-    - center the content horizontally
+add css
+    - make the css not hideous
 
 implement scrolling text animation
 
@@ -15,3 +14,7 @@ make a jira board and delete this file
 add a linter that does not allow merging code that contains todo comments
 
 protect main branch so it cannot me pushed to
+
+where to store messages:
+    - mongo
+    - reddis
