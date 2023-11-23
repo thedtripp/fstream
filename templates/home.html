@@ -3,19 +3,19 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 
 <div class="container">
-<h1>The Stream</h1>
-{% set ns = namespace(concat_messages = '') %}
-{% for message in messages %}
-    {% set ns.concat_messages = ns.concat_messages ~ message[0] ~ ' . . . . . ' %}
-{% endfor%}
+    <a href="/"><h1>The Stream</h1></a>
+    {% set ns = namespace(concat_messages = '') %}
+    {% for message in messages %}
+        {% set ns.concat_messages = ns.concat_messages ~ message[0] ~ ' . . . . . ' %}
+    {% endfor%}
 
-<div class="scroll-left">
-    <p>{{ ns.concat_messages }}</p>
-</div>
-<h3>Submit a message</h3>
+    <div class="scroll-left">
+        <p>{{ ns.concat_messages }}</p>
+    </div>
+    <h3>Submit a message</h3>
 
-<form action="/submit" method = "post">
-  <input type="text" id="message" name="message" placeholder="Enter your message"><br>
-  <input type="submit" value="Submit">
-</form> 
+    <form action="/submit" method = "post">
+    <input type="text" id="message" name="message" placeholder="Enter your message"><br>
+    <input type="submit" value="Submit">
+    </form> 
 </div>
