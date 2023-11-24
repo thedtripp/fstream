@@ -1,0 +1,9 @@
+{
+    "environments": {
+      "test": {
+        "scripts": {
+          "test": "server_test.py"
+        }
+      }
+    }
+  }
