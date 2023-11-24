@@ -4,10 +4,12 @@ body {
 }
 
 .container {
-    border: #000000 solid 2px;
+    border: #f0f0f0 solid 1px;
+    border-radius: 20px;
     margin: auto;
-    width: 250px; /* Adjust the width as needed */
+    width: 500px; /* Adjust the width as needed */
     overflow: hidden; /* Add this to prevent content from overflowing */
+    text-align: center;
 }
 
 .container a, a:visited, a:hover, a:active {
@@ -46,4 +48,36 @@ body {
     100% {
         transform: translateX(-250%); 
     }
+}
+
+.submission-form {
+
+}
+
+.form-input {
+    text-align: center;
+    display: flex;
+    position: relative;
+    min-height: 44px;
+    background: #0f0f0f;
+    border: 1px solid #f0f0f0;
+    box-shadow: none;
+    border-radius: 24px;
+    margin: 0 auto;
+    width: 400px;
+}
+
+.form-submit {
+    background-color: #0f0f0f;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+    color: #f0f0f0;
+    font-size: 14px;
+    margin: 20px;
+    padding: 0 16px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
 }
