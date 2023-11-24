@@ -2,7 +2,7 @@
     "environments": {
       "test": {
         "scripts": {
-          "test": "server_test.py"
+          "test": "python3 server_test.py"
         }
       }
     }
