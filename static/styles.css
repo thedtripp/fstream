@@ -40,7 +40,7 @@ body {
     /* Starting position */
     transform: translateX(100%);
     /* Apply animation to this element */
-    animation: scroll-left 5s linear;
+    animation: scroll-left 240s linear;
     white-space: nowrap; 
 }
 
@@ -50,7 +50,7 @@ body {
         transform: translateX(100%); 		
     }
     100% {
-        transform: translateX(-250%); 
+        transform: translateX(-5000%); 
     }
 }
 
