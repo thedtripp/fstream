@@ -115,6 +115,6 @@ quotes = [
     "A man can be as great as he wants to be. If you believe in yourself and have the courage, the determination, the dedication, the competitive drive and if you are willing to sacrifice the little things in life and pay the price for the things that are worthwhile, it can be done. "
 ]
 
-for i in range(120):
-    submit_message(f"{i}: {random.choice(quotes)}")
+for i in range(20):
+    submit_message(f"{random.choice(quotes)}")
     time.sleep(3)
