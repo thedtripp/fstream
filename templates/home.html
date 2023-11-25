@@ -1,5 +1,10 @@
 <!doctype html>
 <title>fstream</title>
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js" integrity="sha384-mZLF4UVrpi/QTWPA7BjNPEnkIfRFn4ZEO3Qt/HFklTJBj/gBOV8G3HcKn4NfQblz" crossorigin="anonymous"></script>
+
+
+
+
 <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 
 <div class="container">
@@ -9,13 +14,42 @@
         {% set ns.concat_messages = ns.concat_messages ~ message[0] ~ ' . . . . . ' %}
     {% endfor%}
 
-    <div class="scroll-left">
-        <p>{{ ns.concat_messages }}</p>
+    <div id='message-block' class="scroll-left">
     </div>
     <h3>Submit a message</h3>
 
-    <form class="submission-form" action="/submit" method = "post">
-        <input class="form-input" type="text" id="message" name="message" placeholder="Enter your message" required><br>
-        <input class="form-submit" type="submit" value="Submit">
-    </form> 
+    <input id="message" class="form-input" type="text"  name="message" placeholder="Enter your message" required><br>
+
 </div>
+
+
+<script defer>
+    var socket = io.connect("http://localhost:5000");
+    socket.on('connect', function() {
+        console.log('connected');
+    });
+
+    socket.on('message', function(msg) {
+        console.log(msg);
+        var messageBlock = document.querySelector('#message-block');
+        const new_message = document.createElement('div');
+        for (let message of msg){
+          new_message.innerHTML = message[0];
+          messageBlock.appendChild(new_message);
+
+        }
+    });
+    const input = document.querySelector('#message')
+    console.log(input);
+    input.addEventListener('keydown', function (e) {
+        console.log('key pressed');
+        var key = e.which || e.keyCode;
+        if (key === 13) { // 13 is enter
+            socket.emit('message', {data: document.querySelector('#message').value});
+            document.querySelector('#message').value = '';
+        }
+    });
+
+</script>
+
+
