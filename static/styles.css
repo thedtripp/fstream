@@ -44,9 +44,8 @@ body {
 }
 
 .scrolling-message {
-    background-color: green;
     white-space: nowrap;
-    /*overflow: hidden;*/
+    overflow: hidden;
     animation: scrollMessage linear 10s forwards; /* Animation fills the entire duration */
 }
 
