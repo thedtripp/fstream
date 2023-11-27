@@ -8,8 +8,11 @@
 
     <div id='message-block' class='message-block'>
     </div>
-    <h3>Submit a message</h3>
-    <input id="message" class="form-input" type="text"  name="message" placeholder="Enter your message" required>
+    
+    <h3 id="status">Select a Username</h3>
+    <p id="current-username"></p>
+    <input id="username" class="form-input" type="text"  name="username" placeholder="Enter your username" required>
+    <input style="display: none;" id="message" class="form-input" type="text"  name="message" placeholder="Enter your message" required>
 </div>
 
 <script defer>
@@ -24,12 +27,34 @@
     // Flag to check if message display is in progress
     var isDisplayInProgress = false;
 
+    var username = "Anonymous";
+
+    // set username
+    const username_input = document.querySelector('#username')
+    username_input.addEventListener('keydown', (e) => {
+        var key = e.which || e.keyCode;
+        if (key === 13) { // 13 is enter
+            username = username_input.value;
+            document.getElementById('current-username').innerText = "Username: " + username; // Update the current username display
+            document.getElementById('username').remove();
+            document.getElementById('message').setAttribute('style', '');
+            document.getElementById('status').innerText = "Submit a message"
+
+        }
+    });
+
     // send messages
     const message_input = document.querySelector('#message')
     message_input.addEventListener('keydown', (e) => {
         var key = e.which || e.keyCode;
         if (key === 13) { // 13 is enter
-            socket.emit('message', { data: message_input.value });
+            socket.emit(
+                'message', 
+                    {
+                        'user': username,
+                        'data': message_input.value
+                    }
+                );
             message_input.value = '';
         }
     });

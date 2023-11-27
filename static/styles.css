@@ -57,3 +57,12 @@ body {
         margin-left: calc(0% - var(--message-offset, 0));
     }
 }
+
+#current-username {
+    margin-bottom: 20px;
+}
+
+#status {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}

@@ -1,6 +1,5 @@
 from flask import Flask
 from flask import render_template
-from flask import request
 from flask_socketio import SocketIO, send, emit
 
 app = Flask(__name__)
@@ -20,9 +19,7 @@ def on_connect(data):
 
 @socketio.on('message')
 def on_message(data):
-
     user = data.get('user', 'Anonymous')
-    
     message = f"{data['data']} --{user}"
     print(f"Message received: {message}")
     emit('message', message, broadcast=True)
