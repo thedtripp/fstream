@@ -5,7 +5,7 @@ from flask_socketio import SocketIO, send, emit
 
 app = Flask(__name__)
 app.secret_key = "thisKeyIsSuperSecure"
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='eventlet')
 
 
 @app.route("/")
