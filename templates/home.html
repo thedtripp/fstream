@@ -13,7 +13,7 @@
 </div>
 
 <script defer>
-    var socket = io.connect('http://' + document.domain + ':' + location.port, { transports: ['polling'] });
+    var socket = io.connect('https://fstream-be9513d2eea5.herokuapp.com', { transports: ['polling'] });
     socket.on('connect', () => {
         console.log('connected');
     });
