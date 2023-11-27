@@ -14,7 +14,7 @@
 
 <script defer>
     //var socket = io.connect();
-    var socket = io.connect('https://fstream-be9513d2eea5.herokuapp.com/socket.io/?EIO=4&transport=websocket');
+    var socket = io.connect('https://fstream-be9513d2eea5.herokuapp.com');
     socket.on('connect', () => {
         console.log('connected');
     });
