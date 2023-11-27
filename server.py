@@ -2,7 +2,6 @@ from flask import Flask
 from flask import render_template
 from flask import request
 from flask_socketio import SocketIO, send, emit
-from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = "thisKeyIsSuperSecure"
