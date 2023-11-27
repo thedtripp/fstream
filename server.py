@@ -20,7 +20,10 @@ def on_connect(data):
 
 @socketio.on('message')
 def on_message(data):
-    message = data['data']
+
+    user = data.get('user', 'Anonymous')
+    
+    message = f"{data['data']} --{user}"
     print(f"Message received: {message}")
     emit('message', message, broadcast=True)
 

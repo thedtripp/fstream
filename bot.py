@@ -1,15 +1,7 @@
-import requests
-import time
+import socketio
 import random
-
-def submit_message(text):
-    url = "https://fstream-be9513d2eea5.herokuapp.com/api/submit"
-    payload = { "message": text }
-    response = requests.post(url, payload)
-    print(response.status_code, response.content)
-
-#"I use an iterator since I don't know how to loop."
-#curl -d "message=Compiler warning: variable assigned by never used." -X POST http://localhost:5000/api/submit
+import string
+import time
 
 
 quotes = [
@@ -115,6 +107,47 @@ quotes = [
     "A man can be as great as he wants to be. If you believe in yourself and have the courage, the determination, the dedication, the competitive drive and if you are willing to sacrifice the little things in life and pay the price for the things that are worthwhile, it can be done. "
 ]
 
-for i in range(20):
-    submit_message(f"{random.choice(quotes)}")
-    time.sleep(3)
+
+# Create a SocketIO client
+sio = socketio.Client()
+
+
+# Connect to the server
+@sio.event
+def connect():
+    print('Connected to server')
+
+
+# Handle the 'message' event from the server
+@sio.on('message')
+def on_message(data):
+    print(f'Message received from server: {data}')
+
+
+# Send a random letter every 10 seconds
+if __name__ == '__main__':
+    server_url = 'https://fstream-be9513d2eea5.herokuapp.com/'  # Update with your server URL
+    sio.connect(server_url)
+
+    try:
+        while True:
+            message = random.choice(quotes)
+            print(f'Sending random motivational quote: {message}')
+            
+            # Send the random motivational quote to the server
+            sio.emit(
+                'message', 
+                {
+                    'user': 'Motivation Man',
+                    'data': message
+                }
+            )
+
+            time.sleep(30)  # Wait for 20 seconds before sending the next letter
+
+    except KeyboardInterrupt:
+        pass
+
+    finally:
+        # Disconnect from the server when done
+        sio.disconnect()
