@@ -3,8 +3,8 @@
 ## Table of Contents
 - [Introduction](#introduction)
 - [Key Features](#key-features)
-- [Installation](#installation)
 - [Why fStream](#why-fstream)
+- [Installation](#installation)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
@@ -92,4 +92,3 @@ If you'd like to contribute to **fstream**, please follow these guidelines:
 ## License
 
 This project is licensed under the [GNU General Public License v3.0](LICENSE).
-```
