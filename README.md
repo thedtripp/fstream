@@ -1,5 +1,10 @@
 # fStream - Ephemeral Text Streaming App
 
+## Introduction
+fStream is a groundbreaking ephemeral text streaming application built with Flask and Socket.IO. It is inspired by the fleeting nature of Snapchat and text-based apps like Twitter and Threads. The app challenges traditional online communication by introducing a unique approach to content sharing – one message at a time, in real-time. This revolutionary social media platform, named "fStream," embraces minimalism and engages users through a live-streaming experience that doesn't support replays.
+
+![fstreamv0 1-demo](https://github.com/thedtripp/fstream/assets/38776199/e786bc7f-b918-48e3-82f8-9663a2e3c9b1)
+
 ## Table of Contents
 - [Introduction](#introduction)
 - [Key Features](#key-features)
@@ -9,9 +14,6 @@
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
 - [License](#license)
-
-## Introduction
-fStream is a groundbreaking ephemeral text streaming application built with Flask and Socket.IO. It is inspired by the fleeting nature of Snapchat and text-based apps like Twitter and Threads. The app challenges traditional online communication by introducing a unique approach to content sharing – one message at a time, in real-time. This revolutionary social media platform, named "fStream," embraces minimalism and engages users through a live-streaming experience that doesn't support replays.
 
 ## Key Features
 
