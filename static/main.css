@@ -1,0 +1,146 @@
+* {
+  font-family: Arial, Helvetica, sans-serif
+}
+
+body {
+  background-color: #0f0f0f;
+  color: #f0f0f0;
+  margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #f0f0f0;
+}
+
+
+.f-container {
+  border: #f0f0f0 solid 1px;
+  border-radius: 20px;
+  margin: auto;
+  width: 500px; /* Adjust the width as needed */
+  overflow: hidden; /* Add this to prevent content from overflowing */
+  text-align: center;
+}
+
+.f-container a, a:visited, a:hover, a:active {
+  text-decoration: none;
+  color: inherit
+}
+
+.bg-steel {
+  background-color: #0f0f0f;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+
+
+.form-input {
+  text-align: center;
+  display: flex;
+  position: relative;
+  min-height: 44px;
+  background: #0f0f0f;
+  border: 1px solid #f0f0f0;
+  box-shadow: none;
+  border-radius: 24px;
+  margin: 0 auto;
+  width: 400px;
+  color: #f0f0f0;
+  margin-bottom: 20px;
+}
+
+.message-block {
+  display: flex;
+  flex-direction: row; /* To scroll messages from right to left */
+  overflow: hidden;
+  height: 100%; /* Ensure the message block takes full height */
+}
+
+.scrolling-message {
+  white-space: nowrap;
+  overflow: hidden;
+  animation: scrollMessage linear 10s forwards; /* Animation fills the entire duration */
+}
+
+@keyframes scrollMessage {
+  from {
+      margin-left: 100%
+  }
+  to {
+      margin-left: calc(0% - var(--message-offset, 0));
+  }
+}
+
+#current-username {
+  margin-bottom: 20px;
+}
+
+#status {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}

@@ -1,105 +1,15 @@
-<!doctype html>
-<title>fstream</title>
-<script src="https://cdn.socket.io/4.7.2/socket.io.min.js" integrity="sha384-mZLF4UVrpi/QTWPA7BjNPEnkIfRFn4ZEO3Qt/HFklTJBj/gBOV8G3HcKn4NfQblz" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-
-<div class="container">
-    <a href="/"><h1>The Stream</h1></a>
-
-    <div id='message-block' class='message-block'>
-    </div>
-    
-    <h3 id="status">Select a Username</h3>
-    <p id="current-username"></p>
-    <input id="username" class="form-input" type="text"  name="username" placeholder="Enter your username" required>
-    <input style="display: none;" id="message" class="form-input" type="text"  name="message" placeholder="Enter your message" required>
-</div>
-
-<script defer>
-    var socket = io.connect();
-    socket.on('connect', () => {
-        console.log('connected');
-    });
-
-    // Array to store incoming messages
-    var messageQueue = [];
-
-    // Flag to check if message display is in progress
-    var isDisplayInProgress = false;
-
-    var username = "Anonymous";
-
-    // set username
-    const username_input = document.querySelector('#username')
-    username_input.addEventListener('keydown', (e) => {
-        var key = e.which || e.keyCode;
-        if (key === 13) { // 13 is enter
-            username = username_input.value;
-            document.getElementById('current-username').innerText = "Username: " + username; // Update the current username display
-            document.getElementById('username').remove();
-            document.getElementById('message').setAttribute('style', '');
-            document.getElementById('status').innerText = "Submit a message"
-
-        }
-    });
-
-    // send messages
-    const message_input = document.querySelector('#message')
-    message_input.addEventListener('keydown', (e) => {
-        var key = e.which || e.keyCode;
-        if (key === 13) { // 13 is enter
-            socket.emit(
-                'message', 
-                    {
-                        'user': username,
-                        'data': message_input.value
-                    }
-                );
-            message_input.value = '';
-        }
-    });
-
-    // Function to display messages from the queue
-    const displayMessages = () => {
-        if (messageQueue.length > 0 && !isDisplayInProgress) {
-            isDisplayInProgress = true;
-
-            // Get the next message to be displayed
-            const nextMessage = messageQueue.shift();
-
-            // Create a new message element
-            const new_message = document.createElement('div');
-            new_message.classList.add('scrolling-message');
-            new_message.innerHTML = nextMessage;
-
-            // Calculate animation offset based on message length
-            const messageOffset = nextMessage.length * 8; // Adjust the factor as needed
-
-            // Apply dynamic animation offset
-            new_message.style.setProperty('--message-offset', `${messageOffset}px`);
-
-
-            // Append the new message to the message block
-            var messageBlock = document.querySelector('#message-block');
-            messageBlock.appendChild(new_message);
-
-            // Add event listener to detect the end of the animation
-            new_message.addEventListener('animationend', () => {
-                // Remove the displayed message after the animation ends
-                new_message.remove();
-                isDisplayInProgress = false;
-                displayMessages();
-            });
-        }
-    };
-
-    // receive messages
-    socket.on('message', (msg) => {
-        // Store incoming messages in the queue
-        messageQueue.push(msg);
-        // If the display is not currently in progress, start displaying messages
-        if (!isDisplayInProgress) {
-            displayMessages();
-        }
-    });
-</script>
+{% extends "layout.html" %}
+{% block content %}
+    {% for post in posts %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ post.author }}</a>
+              <small class="text-muted">{{ post.date_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

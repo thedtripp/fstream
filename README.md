@@ -1,62 +1,95 @@
-# Technical Design Document for FSTREAM
+# fStream - Ephemeral Text Streaming App
 
-## 1. Introduction
+## Table of Contents
+- [Introduction](#introduction)
+- [Key Features](#key-features)
+- [Installation](#installation)
+- [Why fStream](#why-fstream)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
 
-### 1.1 Purpose
-The purpose of this document is to provide a detailed technical overview of the "fstream" social media application. This document covers the architecture, design decisions, and considerations for scalability to accommodate millions of users.
+## Introduction
+fStream is a groundbreaking ephemeral text streaming application built with Flask and Socket.IO. It is inspired by the fleeting nature of Snapchat and text-based apps like Twitter and Threads. The app challenges traditional online communication by introducing a unique approach to content sharing – one message at a time, in real-time. This revolutionary social media platform, named "fStream," embraces minimalism and engages users through a live-streaming experience that doesn't support replays.
 
-### 1.2 Scope
-The scope of this document includes the architecture, key components, and scalability considerations for the "fstream" application. It does not cover detailed implementation details but serves as a guide for developers and stakeholders.
+## Key Features
 
-## 2. Architecture Overview
+- **Real-time Text Streaming:** Users share content one word per second, creating an immersive and engaging experience.
+  
+- **Ephemeral Nature:** No replays are supported, emphasizing the exclusivity and urgency of the content.
 
-### 2.1 Components
-The "fstream" application consists of the following key components:
+- **Follower/Following Model:** Connect with your audience in real-time, fostering a direct and immediate connection between content creators and consumers.
 
-- **Flask Web Server:** Handles HTTP requests and serves as the main entry point for the application.
-- **Message Stream (List):** Stores the ephemeral messages published by users.
-- **User Management:** Manages user data and relationships.
+- **Minimalistic Design:** Focus on the message without distractions, setting fStream apart from traditional social media platforms.
 
-### 2.2 Technologies Used
-- **Flask:** Web framework for handling HTTP requests.
-- **Python:** Programming language for backend logic.
-- **In-memory Data Structures:** Simple lists and dictionaries for storing data (consideration for future database integration).
+- **No Endless Feeds:** Ideal for busy individuals, the real-time text stream keeps users updated without the need for extended browsing sessions.
 
-## 3. Scalability Considerations
+- **Dynamic Message Display:** Incoming messages are displayed with a dynamic scrolling effect for an engaging user experience.
 
-### 3.1 Current State
-The current implementation is based on an in-memory list for storing messages and lacks scalability features. It is suitable for a small user base but may face performance issues with millions of users.
+## Why fStream?
 
-### 3.2 Scaling Strategy
+fStream isn't just a social media platform; it's a revolution in communication. It offers:
 
-#### Database Integration
-To accommodate millions of users and improve data persistence, consider integrating a database (e.g., PostgreSQL, MongoDB). This allows for efficient data retrieval, storage, and scalability.
+- **Simplicity:** Minimalist design puts the focus on the message rather than flashy graphics.
 
-#### Caching
-Implement caching mechanisms for frequently accessed data to reduce the load on the server and improve response times.
+- **Utility:** Stay informed without spending hours scrolling through feeds.
 
-#### Load Balancing
-Implement load balancing strategies to distribute incoming requests across multiple servers, ensuring even resource utilization and improved performance.
+- **Exclusivity:** No replays create a sense of urgency and exclusivity, driving user engagement.
 
-#### Asynchronous Processing
-Consider using asynchronous processing for tasks such as message delivery to optimize resource utilization and improve system responsiveness.
+Join the revolution today and be part of a new way to communicate, consume, and connect with like-minded individuals. fStream - where the message matters.
 
-## 4. Testing Strategy
 
-### 4.1 Unit Testing
-Implement comprehensive unit tests for individual components, ensuring each function and endpoint behaves as expected.
+## Installation
 
-### 4.2 Integration Testing
-Conduct integration tests to verify the interaction between different components of the system.
+To run the **fstream** application locally, follow these steps:
 
-### 4.3 Performance Testing
-Perform scalability and load testing to identify bottlenecks and optimize the system for handling a large number of concurrent users.
+1. Clone the GitHub repository:
 
-### 4.4 Security Testing
-Conduct security testing to identify and mitigate potential vulnerabilities, including input validation, authentication, and data protection.
+   ```bash
+   git clone https://github.com/thedtripp/fstream.git
+   ```
 
-## 5. Conclusion
+2. Navigate to the project directory:
 
-The "fstream" application, with its simple architecture, provides a foundation for a text-based social media platform. To ensure scalability for millions of users, future enhancements should focus on database integration, caching, load balancing, and asynchronous processing. A comprehensive testing strategy is crucial for maintaining the reliability and security of the system.
+   ```bash
+   cd fstream
+   ```
 
-This document serves as a guide for developers and stakeholders, outlining the key considerations for both the current state and future improvements of the "fstream" application.
+3. Install the required dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Usage
+
+1. Run the Flask application:
+
+   ```bash
+   python server.py
+   ```
+
+2. Open your web browser and go to [http://localhost:5000](http://localhost:5000).
+
+3. Start fStreaming!
+
+## Technologies Used
+
+- [Flask](https://flask.palletsprojects.com/): A micro web framework for Python.
+- [Socket.IO](https://socket.io/): A library for real-time web applications.
+
+## Contributing
+
+If you'd like to contribute to **fstream**, please follow these guidelines:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix: `git checkout -b feature-name`.
+3. Make your changes and commit them: `git commit -m 'Description of your changes'`.
+4. Push to the branch: `git push origin feature-name`.
+5. Open a pull request.
+
+## License
+
+This project is licensed under the [GNU General Public License v3.0](LICENSE).
+```
