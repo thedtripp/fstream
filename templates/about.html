@@ -1,4 +1,80 @@
 {% extends "layout.html" %}
 {% block content %}
     <h1>About Page</h1>
+
+    <header>
+        <h1>fStream - Ephemeral Text Streaming App</h1>
+    </header>
+
+    <section id="introduction">
+        <h2>Introduction</h2>
+        <p>fStream is a groundbreaking ephemeral text streaming application built with Flask and Socket.IO. It is inspired by the fleeting nature of Snapchat and text-based apps like Twitter and Threads. The app challenges traditional online communication by introducing a unique approach to content sharing – one message at a time, in real-time. This revolutionary social media platform, named "fStream," embraces minimalism and engages users through a live-streaming experience that doesn't support replays.</p>
+    </section>
+
+    <section id="key-features">
+        <h2>Key Features</h2>
+        <ul>
+            <li><strong>Real-time Text Streaming:</strong> Users share content one word per second, creating an immersive and engaging experience.</li>
+            <li><strong>Ephemeral Nature:</strong> No replays are supported, emphasizing the exclusivity and urgency of the content.</li>
+            <li><strong>Follower/Following Model:</strong> Connect with your audience in real-time, fostering a direct and immediate connection between content creators and consumers.</li>
+            <li><strong>Minimalistic Design:</strong> Focus on the message without distractions, setting fStream apart from traditional social media platforms.</li>
+            <li><strong>No Endless Feeds:</strong> Ideal for busy individuals, the real-time text stream keeps users updated without the need for extended browsing sessions.</li>
+            <li><strong>Dynamic Message Display:</strong> Incoming messages are displayed with a dynamic scrolling effect for an engaging user experience.</li>
+        </ul>
+    </section>
+
+    <section id="why-fstream">
+        <h2>Why fStream?</h2>
+        <p>fStream isn't just a social media platform; it's a revolution in communication. It offers:</p>
+        <ul>
+            <li><strong>Simplicity:</strong> Minimalist design puts the focus on the message rather than flashy graphics.</li>
+            <li><strong>Utility:</strong> Stay informed without spending hours scrolling through feeds.</li>
+            <li><strong>Exclusivity:</strong> No replays create a sense of urgency and exclusivity, driving user engagement.</li>
+        </ul>
+        <p>Join the revolution today and be part of a new way to communicate, consume, and connect with like-minded individuals. fStream - where the message matters.</p>
+    </section>
+
+    <section id="installation">
+        <h2>Installation</h2>
+        <pre><code>git clone https://github.com/thedtripp/fstream.git</code></pre>
+        <pre><code>cd fstream</code></pre>
+        <pre><code>pip install -r requirements.txt</code></pre>
+    </section>
+
+    <section id="usage">
+        <h2>Usage</h2>
+        <pre><code>python server.py</code></pre>
+        <p>Open your web browser and go to <a href="http://localhost:5000" target="_blank">http://localhost:5000</a>. Start fStreaming!</p>
+    </section>
+
+    <section id="technologies-used">
+        <h2>Technologies Used</h2>
+        <ul>
+            <li><a href="https://flask.palletsprojects.com/" target="_blank">Flask</a>: A micro web framework for Python.</li>
+            <li><a href="https://socket.io/" target="_blank">Socket.IO</a>: A library for real-time web applications.</li>
+        </ul>
+    </section>
+
+    <section id="contributing">
+        <h2>Contributing</h2>
+        <ol>
+            <li>Fork the repository.</li>
+            <li>Create a new branch for your feature or bug fix: <code>git checkout -b feature-name</code>.</li>
+            <li>Make your changes and commit them: <code>git commit -m 'Description of your changes'</code>.</li>
+            <li>Push to the branch: <code>git push origin feature-name</code>.</li>
+            <li>Open a pull request.</li>
+        </ol>
+    </section>
+
+    <section id="license">
+        <h2>License</h2>
+        <p>This project is licensed under the <a href="LICENSE" target="_blank">GNU General Public License v3.0</a>.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Your App Name. All rights reserved.</p>
+    </footer>
+
+
+
 {% endblock content %}

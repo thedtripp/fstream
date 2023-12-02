@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="public-profile-container">
+        <h1>Public Profile: {{ user.username }}</h1>
+
+        <!-- Display Profile Pic (if available) -->
+        <!-- Note: Add your logic to display a black & white profile pic here -->
+
+        <!-- Display Username -->
+        <h2>Username: {{ user.username }}</h2>
+
+        <!-- Display About Section -->
+        <h2>About</h2>
+        <p>{{ user.about or 'No information available.' }}</p>
+
+        <!-- Display Follow/Unfollow Buttons -->
+        {% if current_user.is_authenticated %}
+            {% if current_user != user.username %}
+                {% if current_user.is_following(user) %}
+                    <form action="{{ url_for('unfollow', username=user.username) }}" method="post">
+                        <button type="submit">Unfollow</button>
+                    </form>
+                {% else %}
+                    <form action="{{ url_for('follow', username=user.username) }}" method="post">
+                        <button type="submit">Follow</button>
+                    </form>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+
+
+        <!-- Display List of Followers -->
+        <h2>Followers ({{ user.followers_count }})</h2>
+        {% if user.followers %}
+            <ul>
+                {% for follower in user.followers %}
+                    <li>{{ follower.username }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>This user doesn't have any followers yet.</p>
+        {% endif %}
+
+        <!-- Display List of Following -->
+        <h2>Following ({{ user.following_count }})</h2>
+        {% if user.following %}
+            <ul>
+                {% for followed_user in user.following %}
+                    <li>{{ followed_user.username }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>This user is not following anyone yet.</p>
+        {% endif %}
+    </div>
+{% endblock content %}

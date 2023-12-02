@@ -144,3 +144,10 @@ a.article-title:hover {
   margin-bottom: 0;
   padding-bottom: 0;
 }
+
+pre code {
+  background-color: #121010;
+  padding: 2px 5px;
+  border-radius: 3px;
+  color: #4CAF50; /* Green color for code text */
+}

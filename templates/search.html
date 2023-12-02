@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="search-container">
+        <h1>User Search</h1>
+
+        <!-- Search Bar Form -->
+        <form action="{{ url_for('search_users') }}" method="GET">
+            <input type="text" name="query" placeholder="Enter username">
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Display Search Results -->
+        <h2>Search Results</h2>
+        {% if users %}
+            <ul>
+                {% for user in users %}
+                    <li><a href="{{ url_for('public_profile', username=user.username) }}">{{ user.username }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No users found.</p>
+        {% endif %}
+    </div>
+{% endblock content %}

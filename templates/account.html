@@ -1,4 +1,39 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>{{ current_user.username }}</h1>
+    <div class="account-container">
+        <h1>Welcome, {{ username }}!</h1>
+
+        <h2>Your Stream</h2>
+        <!-- Add code to display the user's stream -->
+        {% include 'stream.html' %}
+
+        <h2>Following</h2>
+        <!-- Add a list of users that the current user is following -->
+        {% if current_user.following %}
+            <ul>
+                {% for user in current_user.following %}
+                    <li><a href="{{ url_for('public_profile', username=user) }}">{{ user }}</a></li>
+
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You are not following anyone yet.</p>
+        {% endif %}
+
+        <h2>Followers ({{ current_user.followers_count }})</h2>
+        <!-- Display the follower count and list of followers -->
+        {% if current_user.followers %}
+            <ul>
+                {% for follower in current_user.followers %}
+                    <li>{{ follower.username }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You don't have any followers yet.</p>
+        {% endif %}
+
+        <h2>Search/Discovery</h2>
+        <!-- Add a search form or link to discover more people to follow -->
+
+    </div>
 {% endblock content %}
